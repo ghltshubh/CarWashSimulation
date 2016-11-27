@@ -2,10 +2,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Created by shubhankar on 11/26/16.
- */
-class CarWash {
+public class CarWash {
     private int systemClock = 0;
     private int previousDeparture = 0;
     private CarWashQ<Car> carWashQ = new CarWashQ<>(6);
@@ -17,7 +14,7 @@ class CarWash {
         in = new Scanner(System.in);
     }
 
-    void run() throws Exception {
+    public void run() throws Exception {
         while (true) {
             inputArrivalTime();
             if (in.hasNextInt()) {
@@ -49,8 +46,7 @@ class CarWash {
             System.out.print("Processing arrival @ " + arrival + " min. ");
             carWashQ.add(car);
             System.out.println("Car added to carQ.\n");
-        } else System.out.println("Car Wash Queue is full. Arrival not processed @ " + arrival + " min. Try an arrival " +
-                "time greater than or equal to " + carWashQ.peek().getDepartureTime() + " min\n");
+        } else System.out.println("Car Wash Queue is full. Arrival not processed @ " + arrival + " min. Try an arrival\ntime greater than or equal to " + carWashQ.peek().getDepartureTime() + " min\n");
         previousDeparture = previousDeparture + 10;
         systemClock = arrival;
     }
@@ -74,6 +70,6 @@ class CarWash {
             System.out.println("No cars to process.");
             return;
         }
-        System.out.printf("\nAverage waiting time is %.2f min %n", average/cars.size());;
+        System.out.printf("\nAverage waiting time is %.2f min %n", average/cars.size());
     }
 }
